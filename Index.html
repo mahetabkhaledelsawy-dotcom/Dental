@@ -1,0 +1,1163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dental Pulpitis: From Inflammation to Complications</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f9fc;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #1a6dba 0%, #0d4d8c 100%);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+        }
+        
+        .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.5;
+        }
+        
+        .main-content {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 2rem 0;
+            gap: 2rem;
+        }
+        
+        .diagram-section {
+            flex: 1;
+            min-width: 300px;
+            background: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .info-section {
+            flex: 2;
+            min-width: 300px;
+            background: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .section-title {
+            color: #1a6dba;
+            border-bottom: 3px solid #1a6dba;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.6rem;
+        }
+        
+        .tooth-diagram {
+            position: relative;
+            height: 400px;
+            margin: 1rem auto;
+            background-color: #f8fafd;
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+        
+        .tooth-icon {
+            font-size: 8rem;
+            color: #1a6dba;
+            margin-bottom: 1rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .diagram-label {
+            font-size: 1.2rem;
+            color: #555;
+            text-align: center;
+            max-width: 80%;
+        }
+        
+        .condition-list {
+            list-style: none;
+        }
+        
+        .condition-item {
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border-left: 5px solid #1a6dba;
+            background-color: #f8fafd;
+        }
+        
+        .condition-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.08);
+            background-color: #e8f2fc;
+        }
+        
+        .condition-item.active {
+            background-color: #d4e7fa;
+            border-left: 5px solid #ff6b6b;
+        }
+        
+        .condition-title {
+            font-weight: 600;
+            font-size: 1.2rem;
+            color: #1a6dba;
+            margin-bottom: 0.3rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .condition-icon {
+            margin-right: 10px;
+            font-size: 1.2rem;
+            width: 24px;
+            text-align: center;
+        }
+        
+        .condition-desc {
+            color: #555;
+            font-size: 1rem;
+        }
+        
+        .visualization {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: #f0f7ff;
+            border-radius: 10px;
+            display: none;
+        }
+        
+        .visualization.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .vis-title {
+            color: #1a6dba;
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .vis-icon {
+            margin-right: 10px;
+            font-size: 1.4rem;
+        }
+        
+        .visual-representation {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.08);
+        }
+        
+        .stage-diagram {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 1rem 0;
+            width: 100%;
+        }
+        
+        .tooth-stage {
+            font-size: 5rem;
+            color: #1a6dba;
+            margin: 0 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .infection-progression {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 1rem;
+            font-size: 1.5rem;
+            color: #ff6b6b;
+        }
+        
+        .progression-arrow {
+            margin: 0 1rem;
+            color: #888;
+        }
+        
+        .symptoms-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+        
+        .symptom-tag {
+            background: #ffebee;
+            color: #c62828;
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .symptom-icon {
+            margin-right: 5px;
+            font-size: 0.9rem;
+        }
+        
+        .progress-container {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .progress-title {
+            font-size: 1.5rem;
+            color: #1a6dba;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .progress-bar {
+            height: 30px;
+            background-color: #e0e0e0;
+            border-radius: 15px;
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, #4CAF50, #8BC34A);
+            border-radius: 15px;
+            transition: width 1s ease;
+        }
+        
+        .progress-stages {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            margin-top: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .stage {
+            text-align: center;
+            font-weight: 600;
+            color: #666;
+            transition: color 0.3s;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            flex: 1;
+            min-width: 80px;
+            padding: 0 5px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .stage.active {
+            color: #1a6dba;
+            font-weight: 700;
+        }
+        
+        .stage-icon {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+        
+        .stage-label {
+            display: block;
+            font-size: 0.75rem;
+            margin-top: 2px;
+            word-break: break-word;
+            line-height: 1.2;
+            text-align: center;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 2rem;
+            background-color: #0d4d8c;
+            color: white;
+        }
+        
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .warning {
+            background-color: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 1rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .prevention {
+            background-color: #d4edda;
+            border-left: 5px solid #28a745;
+            padding: 1rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+        
+        .comparison-table th, .comparison-table td {
+            border: 1px solid #ddd;
+            padding: 0.75rem;
+            text-align: left;
+        }
+        
+        .comparison-table th {
+            background-color: #1a6dba;
+            color: white;
+        }
+        
+        .comparison-table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        
+        .key-points {
+            background: #e3f2fd;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .key-points ul {
+            padding-left: 1.5rem;
+        }
+        
+        .key-points li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .slider-container {
+            margin-top: 1.5rem;
+        }
+        
+        #progressSlider {
+            width: 100%;
+            height: 25px;
+            margin-top: 10px;
+            -webkit-appearance: none;
+            appearance: none;
+            background: transparent;
+        }
+        
+        #progressSlider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background: #1a6dba;
+            cursor: pointer;
+            border: 3px solid white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        
+        #progressSlider::-moz-range-thumb {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background: #1a6dba;
+            cursor: pointer;
+            border: 3px solid white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        
+        .diagram-explanation {
+            background: #f8fafd;
+            border-left: 4px solid #1a6dba;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        @media (max-width: 768px) {
+            .main-content {
+                flex-direction: column;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .tooth-diagram {
+                height: 300px;
+            }
+            
+            .tooth-icon {
+                font-size: 6rem;
+            }
+            
+            .stage {
+                font-size: 0.75rem;
+                min-width: 70px;
+                padding: 0 3px;
+            }
+            
+            .stage-label {
+                font-size: 0.65rem;
+            }
+            
+            .tooth-stage {
+                font-size: 4rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .stage {
+                font-size: 0.7rem;
+                min-width: 60px;
+            }
+            
+            .stage-label {
+                font-size: 0.6rem;
+            }
+            
+            .progress-stages {
+                margin-bottom: 0;
+            }
+            
+            .tooth-stage {
+                font-size: 3rem;
+            }
+            
+            .infection-progression {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Sequel of Pulpitis</h1>
+            <p class="subtitle">An interactive guide to understanding the progression of dental pulp inflammation and its potential complications</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="main-content">
+            <section class="diagram-section">
+                <h2 class="section-title">Dental Anatomy & Inflammation</h2>
+                <div class="tooth-diagram" id="toothDiagram">
+                    <i class="fas fa-tooth tooth-icon" id="animatedTooth"></i>
+                    <p class="diagram-label">Click on the tooth or conditions to explore how pulpitis progresses through different stages</p>
+                </div>
+                
+                <div class="warning">
+                    <h3><i class="fas fa-exclamation-triangle"></i> Important Note</h3>
+                    <p>Pulpitis is often caused by dental caries (tooth decay) that reaches the pulp. Early treatment is essential to prevent progression to more serious conditions.</p>
+                </div>
+            </section>
+            
+            <section class="info-section">
+                <h2 class="section-title">Pulpitis and Its Possible Outcomes</h2>
+                <p>Pulpitis refers to inflammation of the dental pulp tissue, which contains nerves and blood vessels. If left untreated, it can progress through various stages.</p>
+                
+                <ul class="condition-list">
+                    <li class="condition-item active" data-condition="irritant">
+                        <div class="condition-title"><i class="fas fa-biohazard condition-icon"></i> Irritant</div>
+                        <div class="condition-desc">Initial trigger (caries, trauma, etc.) that leads to pulpal inflammation.</div>
+                    </li>
+                    <li class="condition-item" data-condition="pulpitis">
+                        <div class="condition-title"><i class="fas fa-fire condition-icon"></i> Acute/Chronic Pulpitis</div>
+                        <div class="condition-desc">Inflammation of the dental pulp causing sensitivity and pain.</div>
+                    </li>
+                    <li class="condition-item" data-condition="necrosis">
+                        <div class="condition-title"><i class="fas fa-skull-crossbones condition-icon"></i> Pulpal Necrosis</div>
+                        <div class="condition-desc">Death of the pulp tissue due to prolonged inflammation or infection.</div>
+                    </li>
+                    <li class="condition-item" data-condition="periodontitis">
+                        <div class="condition-title"><i class="fas fa-radiation condition-icon"></i> Periapical Periodontitis</div>
+                        <div class="condition-desc">Infection spreads to the tissues surrounding the tooth root.</div>
+                    </li>
+                    <li class="condition-item" data-condition="abscess">
+                        <div class="condition-title"><i class="fas fa-bacteria condition-icon"></i> Dentoalveolar Abscess</div>
+                        <div class="condition-desc">Localized collection of pus caused by bacterial infection.</div>
+                    </li>
+                    <li class="condition-item" data-condition="granuloma">
+                        <div class="condition-title"><i class="fas fa-circle condition-icon"></i> Periapical Granuloma/Cyst</div>
+                        <div class="condition-desc">Chronic inflammatory lesion at the root apex.</div>
+                    </li>
+                    <li class="condition-item" data-condition="cellulitis">
+                        <div class="condition-title"><i class="fas fa-swimmer condition-icon"></i> Cellulitis & Osteomyelitis</div>
+                        <div class="condition-desc">Serious infections spreading to facial spaces or bone.</div>
+                    </li>
+                </ul>
+                
+                <div class="visualization active" id="irritant">
+                    <h3 class="vis-title"><i class="fas fa-biohazard vis-icon"></i> Initial Irritant - Dental Caries</h3>
+                    
+                    <div class="visual-representation">
+                        <div class="stage-diagram">
+                            <i class="fas fa-tooth tooth-stage" style="color: #4CAF50;"></i>
+                            <i class="fas fa-arrow-right progression-arrow"></i>
+                            <i class="fas fa-tooth tooth-stage" style="color: #FF9800;"></i>
+                            <i class="fas fa-arrow-right progression-arrow"></i>
+                            <i class="fas fa-tooth tooth-stage" style="color: #F44336;"></i>
+                        </div>
+                        <div class="diagram-explanation">
+                            <p><strong>Healthy Tooth → Early Caries → Deep Caries Reaching Pulp</strong></p>
+                            <p>Bacteria produce acids that demineralize enamel and dentin, creating a pathway to the pulp chamber.</p>
+                        </div>
+                    </div>
+                    
+                    <p><strong>Primary Irritants:</strong></p>
+                    <ul>
+                        <li>Dental caries (tooth decay) - Most common cause</li>
+                        <li>Trauma from accidents or injuries</li>
+                        <li>Cracked tooth syndrome</li>
+                        <li>Repetitive dental procedures</li>
+                        <li>Thermal injury from dental materials</li>
+                    </ul>
+                    
+                    <div class="symptoms-list">
+                        <span class="symptom-tag"><i class="fas fa-exclamation symptom-icon"></i> Tooth sensitivity</span>
+                        <span class="symptom-tag"><i class="fas fa-exclamation symptom-icon"></i> Visible cavities</span>
+                        <span class="symptom-tag"><i class="fas fa-exclamation symptom-icon"></i> Discoloration</span>
+                    </div>
+                </div>
+                
+                <div class="visualization" id="pulpitis">
+                    <h3 class="vis-title"><i class="fas fa-fire vis-icon"></i> Acute and Chronic Pulpitis</h3>
+                    
+                    <div class="visual-representation">
+                        <div class="stage-diagram">
+                            <i class="fas fa-tooth tooth-stage" style="color: #F44336; transform: scale(1.1);"></i>
+                            <i class="fas fa-fire infection-progression"></i>
+                        </div>
+                        <div class="diagram-explanation">
+                            <p><strong>Inflammation within the pulp chamber</strong></p>
+                            <p>The pulp tissue becomes inflamed, swollen, and painful due to bacterial invasion or irritation.</p>
+                        </div>
+                    </div>
+                    
+                    <p><strong>Acute Pulpitis:</strong> Characterized by severe, sharp pain often triggered by hot or cold stimuli. The inflammation may be reversible in early stages with prompt treatment.</p>
+                    <p><strong>Chronic Pulpitis:</strong> Involves long-standing inflammation with less severe but persistent discomfort. The pulp may still be vital but is compromised and may lead to necrosis if untreated.</p>
+                    
+                    <div class="symptoms-list">
+                        <span class="symptom-tag"><i class="fas fa-thermometer-half symptom-icon"></i> Sensitivity to temperature</span>
+                        <span class="symptom-tag"><i class="fas fa-bolt symptom-icon"></i> Sharp, throbbing pain</span>
+                        <span class="symptom-tag"><i class="fas fa-exclamation-triangle symptom-icon"></i> Spontaneous pain</span>
+                        <span class="symptom-tag"><i class="fas fa-crosshairs symptom-icon"></i> Referred pain to adjacent areas</span>
+                    </div>
+                    
+                    <div class="key-points">
+                        <p><strong>Key Differences:</strong></p>
+                        <ul>
+                            <li><strong>Reversible Pulpitis:</strong> Pain subsides quickly after stimulus removal</li>
+                            <li><strong>Irreversible Pulpitis:</strong> Pain persists after stimulus removal, often spontaneous</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="visualization" id="necrosis">
+                    <h3 class="vis-title"><i class="fas fa-skull-crossbones vis-icon"></i> Pulpal Necrosis</h3>
+                    
+                    <div class="visual-representation">
+                        <div class="stage-diagram">
+                            <i class="fas fa-tooth tooth-stage" style="color: #757575; transform: scale(0.9);"></i>
+                            <div style="margin-left: 1rem;">
+                                <i class="fas fa-ban" style="color: #f44336; font-size: 3rem;"></i>
+                            </div>
+                        </div>
+                        <div class="diagram-explanation">
+                            <p><strong>Death of pulp tissue due to compromised blood supply</strong></p>
+                            <p>Inflammation causes pressure buildup within the rigid pulp chamber, cutting off blood flow and leading to tissue death.</p>
+                        </div>
+                    </div>
+                    
+                    <p>Necrosis refers to death of the pulp tissue. This occurs when inflammation compromises blood supply to the pulp, leading to tissue death and bacterial proliferation within the root canal system.</p>
+                    
+                    <div class="symptoms-list">
+                        <span class="symptom-tag"><i class="fas fa-times-circle symptom-icon"></i> No response to thermal tests</span>
+                        <span class="symptom-tag"><i class="fas fa-tint symptom-icon"></i> Tooth discoloration (grayish)</span>
+                        <span class="symptom-tag"><i class="fas fa-volume-mute symptom-icon"></i> May be asymptomatic initially</span>
+                        <span class="symptom-tag"><i class="fas fa-eye-slash symptom-icon"></i> No radiographic changes initially</span>
+                    </div>
+                    
+                    <div class="warning">
+                        <p><i class="fas fa-info-circle"></i> <strong>Clinical Note:</strong> Necrotic pulp can remain asymptomatic for extended periods, serving as a source of chronic infection that can spread to surrounding tissues.</p>
+                    </div>
+                </div>
+                
+                <div class="visualization" id="periodontitis">
+                    <h3 class="vis-title"><i class="fas fa-radiation vis-icon"></i> Periapical Periodontitis</h3>
+                    
+                    <div class="visual-representation">
+                        <div class="stage-diagram">
+                            <i class="fas fa-tooth tooth-stage" style="color: #757575;"></i>
+                            <i class="fas fa-arrow-down progression-arrow"></i>
+                            <div style="text-align: center;">
+                                <i class="fas fa-circle" style="color: #ff9800; font-size: 3rem;"></i>
+                                <p style="font-size: 0.9rem; margin-top: 0.5rem;">Infection at root apex</p>
+                            </div>
+                        </div>
+                        <div class="diagram-explanation">
+                            <p><strong>Infection spreads from necrotic pulp to periapical tissues</strong></p>
+                            <p>Bacteria and inflammatory byproducts exit through the root apex, infecting the periodontal ligament and surrounding alveolar bone.</p>
+                        </div>
+                    </div>
+                    
+                    <p>Infection spreads from the necrotic pulp through the root canals to the periapical tissues (around the root tip). This causes inflammation of the periodontal ligament and surrounding bone.</p>
+                    
+                    <p><strong>Types of Periapical Periodontitis:</strong></p>
+                    <ul>
+                        <li><strong>Acute Apical Periodontitis:</strong> Painful, symptomatic with possible slight radiographic changes. Pain is elicited by biting or percussion.</li>
+                        <li><strong>Chronic Apical Periodontitis:</strong> Often asymptomatic with well-defined radiolucency on X-ray (periapical radiolucency).</li>
+                    </ul>
+                    
+                    <div class="symptoms-list">
+                        <span class="symptom-tag"><i class="fas fa-hammer symptom-icon"></i> Pain on biting/percussion</span>
+                        <span class="symptom-tag"><i class="fas fa-tooth symptom-icon"></i> Tooth feels elevated</span>
+                        <span class="symptom-tag"><i class="fas fa-bone symptom-icon"></i> Bone resorption on X-ray</span>
+                    </div>
+                </div>
+                
+                <div class="visualization" id="abscess">
+                    <h3 class="vis-title"><i class="fas fa-bacteria vis-icon"></i> Dentoalveolar Abscess</h3>
+                    
+                    <div class="visual-representation">
+                        <div class="stage-diagram">
+                            <i class="fas fa-tooth tooth-stage" style="color: #757575;"></i>
+                            <div style="margin-left: 1rem; text-align: center;">
+                                <i class="fas fa-circle" style="color: #ff5722; font-size: 4rem; animation: pulse 2s infinite;"></i>
+                                <p style="font-size: 0.9rem; margin-top: 0.5rem;">Pus accumulation</p>
+                            </div>
+                        </div>
+                        <div class="diagram-explanation">
+                            <p><strong>Localized collection of pus as immune response walls off infection</strong></p>
+                            <p>The body attempts to contain the infection by forming a wall of inflammatory cells, creating a pocket of pus at the root apex or along the root surface.</p>
+                        </div>
+                    </div>
+                    
+                    <p>A localized collection of pus forms as the body attempts to wall off the infection. This can cause swelling, severe pain, and sometimes systemic symptoms like fever.</p>
+                    
+                    <div class="symptoms-list">
+                        <span class="symptom-tag"><i class="fas fa-swelling symptom-icon"></i> Swelling of gums/face</span>
+                        <span class="symptom-tag"><i class="fas fa-temperature-high symptom-icon"></i> Fever possible</span>
+                        <span class="symptom-tag"><i class="fas fa-tint symptom-icon"></i> Pus drainage possible</span>
+                        <span class="symptom-tag"><i class="fas fa-skull symptom-icon"></i> Severe, throbbing pain</span>
+                        <span class="symptom-tag"><i class="fas fa-bullseye symptom-icon"></i> Localized to one tooth</span>
+                    </div>
+                    
+                    <div class="warning">
+                        <p><i class="fas fa-exclamation-circle"></i> <strong>Emergency:</strong> Facial swelling from dental abscess requires immediate dental care as it can progress to dangerous cellulitis.</p>
+                    </div>
+                </div>
+                
+                <div class="visualization" id="granuloma">
+                    <h3 class="vis-title"><i class="fas fa-circle vis-icon"></i> Periapical Granuloma or Cyst</h3>
+                    
+                    <div class="visual-representation">
+                        <div class="stage-diagram">
+                            <i class="fas fa-tooth tooth-stage" style="color: #757575;"></i>
+                            <div style="margin-left: 1rem; text-align: center;">
+                                <i class="fas fa-circle" style="color: #9c27b0; font-size: 4rem;"></i>
+                                <p style="font-size: 0.9rem; margin-top: 0.5rem;">Chronic lesion</p>
+                            </div>
+                        </div>
+                        <div class="diagram-explanation">
+                            <p><strong>Chronic inflammatory response forms granuloma or cyst at root apex</strong></p>
+                            <p>Long-standing low-grade infection leads to formation of organized inflammatory tissue (granuloma) or fluid-filled cavity lined by epithelium (cyst).</p>
+                        </div>
+                    </div>
+                    
+                    <p>Chronic inflammation leads to formation of a periapical granuloma (inflammatory tissue) or cyst (fluid-filled cavity lined by epithelium). These lesions can grow slowly and destroy surrounding bone.</p>
+                    
+                    <div class="comparison-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Feature</th>
+                                    <th>Periapical Granuloma</th>
+                                    <th>Periapical Cyst</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Structure</strong></td>
+                                    <td>Inflammatory tissue without epithelial lining</td>
+                                    <td>Epithelial-lined cavity containing fluid</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Growth</strong></td>
+                                    <td>Slow, limited growth potential</td>
+                                    <td>Can expand progressively by osmotic pressure</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Radiographic Appearance</strong></td>
+                                    <td>Well-defined radiolucency</td>
+                                    <td>Well-defined radiolucency, sometimes with sclerotic border</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Treatment</strong></td>
+                                    <td>Root canal therapy often sufficient</td>
+                                    <td>May require surgical removal (apicoectomy)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <div class="visualization" id="cellulitis">
+                    <h3 class="vis-title"><i class="fas fa-swimmer vis-icon"></i> Cellulitis & Osteomyelitis</h3>
+                    
+                    <div class="visual-representation">
+                        <div class="stage-diagram">
+                            <i class="fas fa-tooth tooth-stage" style="color: #757575;"></i>
+                            <i class="fas fa-arrow-right progression-arrow"></i>
+                            <i class="fas fa-face-meh" style="color: #ff5722; font-size: 4rem;"></i>
+                            <i class="fas fa-arrow-right progression-arrow"></i>
+                            <i class="fas fa-skull" style="color: #d32f2f; font-size: 4rem;"></i>
+                        </div>
+                        <div class="diagram-explanation">
+                            <p><strong>Local infection → Facial cellulitis → Bone infection (osteomyelitis)</strong></p>
+                            <p>Infection spreads beyond the tooth to surrounding facial spaces (cellulitis) and potentially to the bone itself (osteomyelitis).</p>
+                        </div>
+                    </div>
+                    
+                    <div class="comparison-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Condition</th>
+                                    <th>Description</th>
+                                    <th>Severity & Treatment</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Facial Cellulitis</strong></td>
+                                    <td>Diffuse, spreading infection of facial connective tissue spaces</td>
+                                    <td>Serious, requires hospitalization, IV antibiotics, possible surgical drainage</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Ludwig's Angina</strong></td>
+                                    <td>Bilateral cellulitis of submandibular, sublingual, and submental spaces</td>
+                                    <td>Life-threatening airway emergency, requires ICU care, surgical airway may be needed</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Osteomyelitis</strong></td>
+                                    <td>Infection of the bone marrow and surrounding bone tissue</td>
+                                    <td>Severe, difficult to treat, requires long-term antibiotics, surgical debridement</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="symptoms-list">
+                        <span class="symptom-tag"><i class="fas fa-expand-alt symptom-icon"></i> Rapidly spreading swelling</span>
+                        <span class="symptom-tag"><i class="fas fa-wind symptom-icon"></i> Difficulty breathing/swallowing</span>
+                        <span class="symptom-tag"><i class="fas fa-temperature-high symptom-icon"></i> High fever and chills</span>
+                        <span class="symptom-tag"><i class="fas fa-tired symptom-icon"></i> Malaise and confusion</span>
+                        <span class="symptom-tag"><i class="fas fa-lock symptom-icon"></i> Trismus (locked jaw)</span>
+                    </div>
+                    
+                    <div class="warning">
+                        <h4><i class="fas fa-exclamation-triangle"></i> EMERGENCY WARNING SIGNS</h4>
+                        <ul>
+                            <li>Severe facial swelling extending to neck or eyes</li>
+                            <li>Difficulty breathing or swallowing</li>
+                            <li>High fever (>101°F / 38.3°C) with chills</li>
+                            <li>Confusion or altered mental status</li>
+                            <li>Trismus (inability to open mouth fully)</li>
+                        </ul>
+                        <p><strong>These conditions require immediate emergency medical attention at a hospital!</strong></p>
+                    </div>
+                </div>
+            </section>
+        </div>
+        
+        <div class="progress-container">
+            <h2 class="progress-title">Progression of Pulpitis</h2>
+            <p>Move the slider to visualize how pulpitis progresses through different stages if left untreated:</p>
+            
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            
+            <div class="progress-stages">
+                <div class="stage active" data-progress="0">
+                    <i class="fas fa-biohazard stage-icon"></i>
+                    <span class="stage-label">Irritant</span>
+                </div>
+                <div class="stage" data-progress="20">
+                    <i class="fas fa-fire stage-icon"></i>
+                    <span class="stage-label">Pulpitis</span>
+                </div>
+                <div class="stage" data-progress="40">
+                    <i class="fas fa-skull-crossbones stage-icon"></i>
+                    <span class="stage-label">Necrosis</span>
+                </div>
+                <div class="stage" data-progress="60">
+                    <i class="fas fa-radiation stage-icon"></i>
+                    <span class="stage-label">Periodontitis</span>
+                </div>
+                <div class="stage" data-progress="80">
+                    <i class="fas fa-bacteria stage-icon"></i>
+                    <span class="stage-label">Abscess/Granuloma</span>
+                </div>
+                <div class="stage" data-progress="100">
+                    <i class="fas fa-swimmer stage-icon"></i>
+                    <span class="stage-label">Cellulitis/Osteomyelitis</span>
+                </div>
+            </div>
+            
+            <div class="slider-container">
+                <input type="range" min="0" max="100" value="0" class="slider" id="progressSlider">
+            </div>
+            
+            <div class="prevention">
+                <h3><i class="fas fa-shield-alt"></i> Prevention & Treatment</h3>
+                <p>Regular dental check-ups, proper oral hygiene, and timely treatment of dental caries can prevent pulpitis. Treatment options include:</p>
+                <ul>
+                    <li><strong>Reversible pulpitis:</strong> Removal of decay and placement of a dental filling</li>
+                    <li><strong>Irreversible pulpitis/necrosis:</strong> Root canal treatment to remove infected pulp</li>
+                    <li><strong>Periapical abscess/granuloma:</strong> Root canal treatment or apicoectomy</li>
+                    <li><strong>Cellulitis/Ludwig's angina:</strong> Hospitalization, IV antibiotics, surgical drainage</li>
+                    <li><strong>Osteomyelitis:</strong> Long-term antibiotics, surgical debridement, hyperbaric oxygen</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="container footer-content">
+            <h3>Dental Health Education</h3>
+            <p>This interactive guide is for educational purposes only. Always consult with a dental professional for diagnosis and treatment of dental conditions.</p>
+            <p>© 2023 Dental Health Interactive | Based on the sequel of pulpitis diagram</p>
+        </div>
+    </footer>
+
+    <script>
+        // Interactive condition selection
+        const conditionItems = document.querySelectorAll('.condition-item');
+        const visualizations = document.querySelectorAll('.visualization');
+        const progressSlider = document.getElementById('progressSlider');
+        const progressFill = document.getElementById('progressFill');
+        const stages = document.querySelectorAll('.stage');
+        const animatedTooth = document.getElementById('animatedTooth');
+        
+        // Set initial progress
+        progressFill.style.width = '0%';
+        
+        // Handle condition item clicks
+        conditionItems.forEach(item => {
+            item.addEventListener('click', function() {
+                // Remove active class from all items
+                conditionItems.forEach(i => i.classList.remove('active'));
+                
+                // Add active class to clicked item
+                this.classList.add('active');
+                
+                // Get the condition to show
+                const condition = this.getAttribute('data-condition');
+                
+                // Hide all visualizations
+                visualizations.forEach(vis => vis.classList.remove('active'));
+                
+                // Show the selected visualization
+                document.getElementById(condition).classList.add('active');
+                
+                // Update progress slider based on condition
+                updateSliderFromCondition(condition);
+                
+                // Update tooth animation based on condition
+                updateToothAnimation(condition);
+                
+                // Scroll to visualization for mobile
+                if (window.innerWidth < 768) {
+                    document.getElementById(condition).scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+        
+        // Handle progress slider movement
+        progressSlider.addEventListener('input', function() {
+            const value = this.value;
+            
+            // Update progress fill width
+            progressFill.style.width = `${value}%`;
+            
+            // Update active stage
+            updateActiveStage(value);
+            
+            // Show corresponding condition based on slider value
+            showConditionFromProgress(value);
+        });
+        
+        // Update slider position based on selected condition
+        function updateSliderFromCondition(condition) {
+            let progressValue = 0;
+            
+            switch(condition) {
+                case 'irritant':
+                    progressValue = 0;
+                    break;
+                case 'pulpitis':
+                    progressValue = 20;
+                    break;
+                case 'necrosis':
+                    progressValue = 40;
+                    break;
+                case 'periodontitis':
+                    progressValue = 60;
+                    break;
+                case 'abscess':
+                case 'granuloma':
+                    progressValue = 80;
+                    break;
+                case 'cellulitis':
+                    progressValue = 100;
+                    break;
+            }
+            
+            progressSlider.value = progressValue;
+            progressFill.style.width = `${progressValue}%`;
+            updateActiveStage(progressValue);
+            updateToothAnimation(condition);
+        }
+        
+        // Update which stage is active based on progress value
+        function updateActiveStage(value) {
+            stages.forEach(stage => {
+                const stageProgress = parseInt(stage.getAttribute('data-progress'));
+                stage.classList.remove('active');
+                
+                // Find the stage that corresponds to the current progress
+                if (value >= stageProgress) {
+                    // For the last stage, only activate when value is exactly 100
+                    if (stageProgress === 100 && value < 100) return;
+                    
+                    stage.classList.add('active');
+                }
+            });
+        }
+        
+        // Update tooth animation based on condition
+        function updateToothAnimation(condition) {
+            // Reset animation
+            animatedTooth.style.animation = '';
+            animatedTooth.style.color = '#1a6dba';
+            
+            // Apply different animations based on condition
+            switch(condition) {
+                case 'irritant':
+                    animatedTooth.style.color = '#4CAF50';
+                    break;
+                case 'pulpitis':
+                    animatedTooth.style.animation = 'pulse 1s infinite';
+                    animatedTooth.style.color = '#F44336';
+                    break;
+                case 'necrosis':
+                    animatedTooth.style.color = '#757575';
+                    animatedTooth.style.transform = 'scale(0.9)';
+                    setTimeout(() => { animatedTooth.style.transform = 'scale(1)'; }, 300);
+                    break;
+                case 'periodontitis':
+                    animatedTooth.style.animation = 'shake 0.5s ease-in-out';
+                    animatedTooth.style.color = '#757575';
+                    break;
+                case 'abscess':
+                    animatedTooth.style.animation = 'pulse 0.7s infinite';
+                    animatedTooth.style.color = '#757575';
+                    break;
+                case 'granuloma':
+                    animatedTooth.style.color = '#9c27b0';
+                    break;
+                case 'cellulitis':
+                    animatedTooth.style.animation = 'pulse 0.5s infinite';
+                    animatedTooth.style.color = '#d32f2f';
+                    break;
+            }
+        }
+        
+        // Show condition visualization based on progress value
+        function showConditionFromProgress(value) {
+            // Hide all visualizations
+            visualizations.forEach(vis => vis.classList.remove('active'));
+            
+            // Remove active class from all condition items
+            conditionItems.forEach(item => item.classList.remove('active'));
+            
+            let conditionToShow = 'irritant';
+            let conditionItemToActivate = 'irritant';
+            
+            if (value <= 10) {
+                conditionToShow = 'irritant';
+                conditionItemToActivate = 'irritant';
+            } else if (value <= 30) {
+                conditionToShow = 'pulpitis';
+                conditionItemToActivate = 'pulpitis';
+            } else if (value <= 50) {
+                conditionToShow = 'necrosis';
+                conditionItemToActivate = 'necrosis';
+            } else if (value <= 70) {
+                conditionToShow = 'periodontitis';
+                conditionItemToActivate = 'periodontitis';
+            } else if (value <= 90) {
+                conditionToShow = 'abscess';
+                conditionItemToActivate = 'abscess';
+            } else {
+                conditionToShow = 'cellulitis';
+                conditionItemToActivate = 'cellulitis';
+            }
+            
+            // Show the corresponding visualization
+            document.getElementById(conditionToShow).classList.add('active');
+            
+            // Activate the corresponding condition item
+            document.querySelector(`[data-condition="${conditionItemToActivate}"]`).classList.add('active');
+            
+            // Update tooth animation
+            updateToothAnimation(conditionToShow);
+        }
+        
+        // Add tooth diagram interaction
+        const toothDiagram = document.getElementById('toothDiagram');
+        toothDiagram.addEventListener('click', function() {
+            // Cycle through conditions when diagram is clicked
+            const activeItem = document.querySelector('.condition-item.active');
+            const nextItem = activeItem.nextElementSibling || conditionItems[0];
+            
+            // Simulate click on next condition
+            nextItem.click();
+        });
+        
+        // Add hover effect to tooth diagram
+        toothDiagram.addEventListener('mouseover', function() {
+            this.style.transform = 'scale(1.02)';
+            this.style.transition = 'transform 0.3s ease';
+            this.style.boxShadow = '0 8px 16px rgba(0, 0, 0, 0.1)';
+        });
+        
+        toothDiagram.addEventListener('mouseout', function() {
+            this.style.transform = 'scale(1)';
+            this.style.boxShadow = 'none';
+        });
+        
+        // Add CSS animations
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes pulse {
+                0% { transform: scale(1); }
+                50% { transform: scale(1.05); }
+                100% { transform: scale(1); }
+            }
+            
+            @keyframes shake {
+                0%, 100% { transform: translateX(0); }
+                25% { transform: translateX(-5px); }
+                75% { transform: translateX(5px); }
+            }
+        `;
+        document.head.appendChild(style);
+        
+        // Initialize with first condition active
+        updateSliderFromCondition('irritant');
+        
+        // Create demo mode button
+        let autoCycleInterval;
+        const startDemoMode = () => {
+            let demoBtn = document.createElement('button');
+            demoBtn.innerHTML = '<i class="fas fa-play"></i> Start Demo Mode';
+            demoBtn.style.cssText = 'background: #1a6dba; color: white; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer; margin: 10px auto; display: block; font-size: 1rem; transition: background 0.3s;';
+            demoBtn.onmouseover = function() { this.style.background = '#0d4d8c'; };
+            demoBtn.onmouseout = function() { this.style.background = '#1a6dba'; };
+            
+            demoBtn.onclick = function() {
+                if (autoCycleInterval) {
+                    clearInterval(autoCycleInterval);
+                    autoCycleInterval = null;
+                    this.innerHTML = '<i class="fas fa-play"></i> Start Demo Mode';
+                    this.style.background = '#1a6dba';
+                } else {
+                    let currentIndex = 0;
+                    autoCycleInterval = setInterval(() => {
+                        conditionItems[currentIndex].click();
+                        currentIndex = (currentIndex + 1) % conditionItems.length;
+                    }, 3500);
+                    this.innerHTML = '<i class="fas fa-pause"></i> Stop Demo Mode';
+                    this.style.background = '#d32f2f';
+                }
+            };
+            document.querySelector('.progress-container').appendChild(demoBtn);
+        };
+        
+        // Start demo mode button
+        startDemoMode();
+        
+        // Stop auto-cycling on user interaction
+        document.addEventListener('click', function(e) {
+            if (autoCycleInterval && !e.target.closest('button')) {
+                clearInterval(autoCycleInterval);
+                autoCycleInterval = null;
+                const demoBtn = document.querySelector('button');
+                if (demoBtn) {
+                    demoBtn.innerHTML = '<i class="fas fa-play"></i> Start Demo Mode';
+                    demoBtn.style.background = '#1a6dba';
+                }
+            }
+        });
+    </script>
+</body>
+</html>
